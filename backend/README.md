@@ -217,3 +217,95 @@ req.query
 
 * till now we have seen that how we can render a html file now we have to send too much css or javaScript logic or code when we send any request to any web page then we got response form server then we not only get html we get css and js logic also
 * so static file serve means if we have include the css then we can write app.use(express.static(folder_name))
+
+# get & Post Request
+
+- GET
+
+* Used to GET some reaponse
+  -Data sent in query strings(limited,String data & visible in URL)
+
+- POST
+
+* Used to POST something (for Create/Write/Update)
+* Data sent via request body (any type of data)
+
+# Handlind Post request
+
+- Set up POST request route to get some reaponse
+- Parse POST request data
+
+  # EX-
+
+  - app.use(express.urlencoded({extended:true}));
+  - app.use(express.json());
+
+# Revisiting JS OOPS
+
+- Object Oriented Programming
+- To structure our code
+
+* prototype
+* new Operator
+* contructors
+* classes
+* keyword(extends,super)
+
+# Object Prototypes
+
+- Prototypes are the mechanism by which JavaScript objects inherit from one another.
+- It is like a single template Object that all object inherit method and properties from without having their own copy.
+
+  - arr._proto_(reference)
+  - Array.prototype(actual object)
+  - String_prototype
+
+* Every object in javascript has a built-in-properties ,which is called its prototpye.The prototype is itself an object,so the prototype will have its own prototype ,making what's called a prototype chain.
+  the chain ends when we reach a prototype that has null for its own prototype.
+
+# Factory Function
+
+- a function that creates objects
+- so we can create factory function like this
+
+* function personMaker (name,age){
+* const person ={
+*        name:name,
+*        age:age,
+*        talk(){
+*            console.log(`Hey my name is  ${this.name}`);
+
+*        }
+* }
+* return person;
+* }
+
+- and we can call or carete a person like this
+
+* let p1= PersonMaker("Moni",21);
+
+- Main distadvantage of the FACTORY FUNCITON is the it send its own copy
+- so if we store the data of 1000 pople in the database then it create a copy of that 1000 data also SO we get a new concept called NEW OPERATOR
+
+# NEW OPERATOR
+
+- The new operator lets developers create an instance of a user-defined object type or of one of the built-in object types that has a constructor funciton
+
+# EX---
+
+- We are using constructor and constructor does't return any thing
+
+* function Person(name,age){
+* this.name=name;
+* this.age=age;
+* }
+
+  <!--  if we want every person have a talk  then  -->
+
+- Person.prototype.talk=function(){
+- console.log(`Hi my name is ${this.name})
+- };
+<!-- create object using Contructor -->
+
+* let p1= new person("Ashutosh",25);
+* let p2=new person("Moni",21);
